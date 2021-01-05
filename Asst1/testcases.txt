@@ -1,0 +1,16 @@
+testcases.txt
+Timur Misirpashayev
+
+WORKLOAD D
+
+200 times, malloc()s an amount of bytes randomly chosen between 1 and 15, and stores the pointers in an array of size 200. Then, each pointer is freed one by one in the order of allocation. This process is repeated.
+
+I chose this workload because it shows that my malloc() implementation can handle the storage of memory of different sizes, split memory blocks whenever necessary, and free the memory without any problems.
+
+WORKLOAD E
+
+This workload malloc()s memory in the sequence 1, 50, 2, 49, ..., 49, 2, 50, 1. It then frees the memory in the even positions (1, 2, ..., 50), after which it frees the memory in the odd positions (50, 49, ..., 1). This process is then repeated, but with the sequence 50, 1, 49, 2, ..., 2, 49, 1, 50.
+
+I chose this workload because it exercises the merge() algorithm quite a bit. After the even positions are freed, there are holes between the data allocated at the odd positions. This means that when we free memory at an odd position, we must merge the newly freed memory block with its neighbors.
+
+Both of these workloads are run 50 times.
